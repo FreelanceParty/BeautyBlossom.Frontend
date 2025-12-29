@@ -803,7 +803,7 @@ const OrderPlacement = () => {
 											Оплата за реквізитами
 										</SelectOpton>
 
-										<SelectOpton value="Післяплата">Післяплата</SelectOpton>
+										<SelectOpton value="Післяплата">Післяплата (по передоплаті 100грн)</SelectOpton>
 									</Select>
 									<Titles>КОМЕНТАР ДО ЗАМОВЛЕННЯ</Titles>
 									<label htmlFor="comments"></label>
