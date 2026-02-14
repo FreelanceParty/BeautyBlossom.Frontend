@@ -195,6 +195,10 @@ const OrderPlacement = () => {
 	};
 	const handleWarehousesChange = async () => {
 		try {
+			if (!warehouseSearch) {
+				return;
+			}
+
 			const requestData = {
 				apiKey:           apiKey,
 				modelName:        "Address",
@@ -204,10 +208,6 @@ const OrderPlacement = () => {
 					Limit:   "4000",
 				},
 			};
-
-			if (searchWarehouses) {
-				requestData.methodProperties.WarehouseRef = searchWarehouses;
-			}
 
 			const response = await fetch(
 				"https://api.novaposhta.ua/v2.0/json/Address",
@@ -246,13 +246,13 @@ const OrderPlacement = () => {
 	}, [searchText]);
 
 	useEffect(() => {
-		if (warehouseSearch) {
-			handleCityChange();
+		if (!warehouseSearch) {
+			setWarehouses([]);
+			return;
 		}
 		handleWarehousesChange();
-
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [searchWarehouses]);
+	}, [warehouseSearch]);
 
 	const totalCost = isOptUser
 		? updateItems.reduce(
@@ -472,9 +472,8 @@ const OrderPlacement = () => {
 		const value = e.target.value;
 		setSearchWarehouses(value);
 
-
 		if (value.length > 2) {
-			setDropdownWarehouseVisible(searchWarehouses.length < 20);
+			setDropdownWarehouseVisible(warehouses.length < 20);
 		}
 		setDropdownWarehouseVisible(value.length >= 1);
 	}, 300);
@@ -484,7 +483,6 @@ const OrderPlacement = () => {
 		setSearchText(selectedCityWithArea);
 		setDropdownCityVisible(false);
 		setSearchWarehouses("");
-		handleWarehousesChange();
 		setWarehouseSearch(DeliveryCity);
 	};
 
@@ -745,9 +743,8 @@ const OrderPlacement = () => {
 													placeholder="Введіть номер відділення"
 													onClick={() => {
 														setDropdownWarehouseVisible(
-															searchCities.length <= 20
+															warehouses.length <= 20
 														);
-														handleWarehousesChange();
 													}}
 													onBlur={() => {
 														setTimeout(() => {
