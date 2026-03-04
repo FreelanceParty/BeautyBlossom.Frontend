@@ -4,6 +4,7 @@ import celimax from '../../images/banner/celimax/celimax.png';
 import woman from '../../images/banner/celimax/woman.png';
 import womanmobile from '../../images/banner/celimax/woman_mobile.png';
 import logo from '../../images/banner/celimax/logo.png';
+import logomobile from '../../images/banner/celimax/logo_mobile.png';
 import productBorder from '../../images/banner/celimax/product_border.svg';
 import product1 from '../../images/banner/celimax/product_1.png';
 import product1cut from '../../images/banner/celimax/product_1_cut.png';
@@ -55,6 +56,13 @@ const CelimaxBanner = () => {
 							src={celimax}
 							alt=""
 							className="max-h-[91px] overflow-hidden scale-[155%]"
+						/>
+						<img
+							src={logomobile}
+							alt=""
+							className="absolute bottom-1.5 left-1.5"
+							width={31}
+							height={12}
 						/>
 						<img
 							src={product1mobile}
@@ -118,7 +126,7 @@ const CelimaxBanner = () => {
 					</div>
 				</div>
 				<img className="absolute bottom-0 left-[5%] md:left-[15%] lg:left-[27%] z-2 w-[470px] xl:w-[611px]" src={woman} height={526}/>
-				<img className="absolute bottom-0 left-[19%] md:left-[26%] lg:left-[36%] z-2" src={logo} width={84} height={33}/>
+				<img className="absolute bottom-0 left-[19%] md:left-[26%] lg:left-[36%] xl:left-[37%] 2xl:left-[36%] z-2" src={logo} width={84} height={33}/>
 				<div className="flex flex-col gap-4">
 					<div className="hidden xl:grid grid-cols-3 gap-[14px]">
 						<div className="relative flex justify-center">
