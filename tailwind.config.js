@@ -4,11 +4,12 @@ module.exports = {
 		"./src/**/*.{js,jsx,ts,tsx}",
 	],
 	theme:   {
-		extend:  {
+		extend: {
 			fontFamily: {
 				montserrat: ['Montserrat', 'sans-serif'],
+				stolzl:     ['Stolzl', "system-ui", "sans-serif"],
 			},
-			screens: {
+			screens:    {
 				xs: '480px',
 			},
 		},
